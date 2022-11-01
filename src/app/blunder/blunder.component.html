@@ -1,0 +1,15 @@
+<div>
+  <h1 (click)="add()">Add more...</h1>
+  <div id="content">
+    <div id="content-inside" *ngFor="let c of cs">
+      <h1 [ngStyle]="{'color': getRandomColor()}">BOOBS</h1>
+    </div>
+
+  </div>
+
+  <button mat-button>Add Me</button>
+</div>
+<!-- <h3>{{generateRandomColor()}}</h3> -->
+<!-- <div *ngFor="let i of numArray">
+  <h1 [ngStyle]="{'color': getRandomColor()}">Color!</h1>
+</div> -->

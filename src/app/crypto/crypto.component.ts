@@ -57,13 +57,12 @@ function countBits(n: number): number {
   return count;
 } 
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-crypto',
+  templateUrl: './crypto.component.html',
+  styleUrls: ['./crypto.component.css']
 })
-export class AppComponent implements OnInit{
+export class CryptoComponent implements OnInit {
   ngOnInit(): void {
     this.idiot();
   }
@@ -100,5 +99,6 @@ export class AppComponent implements OnInit{
       // console.log('spun string',spinWords(s));
     });
   }
+
 
 }
