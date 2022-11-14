@@ -1,15 +1,21 @@
 <div>
-  <h1 (click)="add()">Add more...</h1>
-  <div id="content">
-    <div id="content-inside" *ngFor="let c of cs">
-      <h1 [ngStyle]="{'color': getRandomColor()}">BOOBS</h1>
-    </div>
-
+  <div class="header">
+    <button mat-raised-button (click)="addBoob()">
+      <h1>Add More...</h1>
+    </button>
+    <mat-card class="header-text">
+      <h1>{{ boobId }}</h1>
+    </mat-card>
+    <button mat-raised-button (click)="addBooty()">
+      <h1>Add More...</h1>
+    </button>
+    <mat-card class="header-text">
+      <h1>{{ bootyId }}</h1>
+    </mat-card>
   </div>
-
-  <button mat-button>Add Me</button>
+  <div class="content">
+    <div class="body-part-container" *ngFor="let bodyPart of bodyPartList">
+      <h1 id="{{ bodyPart.id }}" [ngStyle]="{ color: bodyPart.color }"> {{bodyPart.part}} </h1>
+    </div>
+  </div>
 </div>
-<!-- <h3>{{generateRandomColor()}}</h3> -->
-<!-- <div *ngFor="let i of numArray">
-  <h1 [ngStyle]="{'color': getRandomColor()}">Color!</h1>
-</div> -->

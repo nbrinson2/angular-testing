@@ -57,6 +57,48 @@ function countBits(n: number): number {
   return count;
 } 
 
+function filterObject(): void {
+  const entity = [
+    {
+      enti: {
+
+      },
+      state: [
+        {
+          status: 'barry',
+          workState: 'not',
+        },
+        {
+          status: 'gary',
+          workState: 'comp',
+          timestampUs: '345',
+        },
+      ]
+    },
+    {
+      enti: {
+
+      },
+      state: [
+        {
+          status: 'barry',
+          workState: 'not',
+        },
+        {
+          status: 'gary',
+          workState: 'comp',
+          timestampUs: '345',
+        },
+      ]
+    },
+  ];
+
+  const keyArr = Object.keys(entity);
+  console.log('file: app.component.ts | line 97 | keyArr', keyArr);
+
+  // const filterObject = entity.filter((en) => en[enti]));
+}
+
 
 @Component({
   selector: 'app-root',
@@ -65,6 +107,7 @@ function countBits(n: number): number {
 })
 export class AppComponent implements OnInit{
   ngOnInit(): void {
+    filterObject();
     this.idiot();
   }
   title = 'angular-testing';

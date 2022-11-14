@@ -1,44 +1,49 @@
 import { AfterViewChecked, Component, NgZone, OnInit } from '@angular/core';
 
-function timeIn() {
-  setTimeout(() => {
-    console.log('barry');
-  }, 1000);
+interface BodyPart {
+  id: string;
+  color: string;
+  part: string;
 }
 
 @Component({
   selector: 'app-blunder',
   templateUrl: './blunder.component.html',
-  styleUrls: ['./blunder.component.css']
+  styleUrls: ['./blunder.component.scss'],
 })
-export class BlunderComponent implements OnInit {
-
-  cs: number[] = [];
-  bColor: string = "blue";
-  numArray = Array(100).fill(1);
-
-  constructor(private zone: NgZone) { }
-  ngOnInit() {
-    // timeIn();
-  }
-
-  generateRandomColor() {
-      return Math.floor(Math.random() * 100);
-  }  
+export class BlunderComponent {
+  boobId: number = 0;
+  bootyId: number = 0;
+  bodyPartList: BodyPart[] = [];
+  boobList: BodyPart[] = [];
+  bootyList: BodyPart[] = [];
 
   getRandomColor(): string {
     const letters = '0123456789ABCDEF';
     let color = '#';
     for (let index = 0; index < 6; index++) {
-      color += letters[Math.floor(Math.random()*16)];      
+      color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
   }
 
-  add() {
-    this.cs.push(this.bColor.length);
+  addBodyPart(bodyPart: BodyPart) {
+    this.bodyPartList.push({ id: this.boobId + "-boob", color: this.getRandomColor(), part: bodyPart.part });
+  }
+
+  addBoob() {
+    this.addBodyPart({ id: this.boobId + "-boob", color: this.getRandomColor(), part: "BOOBS"})
+    this.boobId += 1;
     setTimeout(() => {
-      this.add();      
-    }, 1000);
+      this.addBoob();
+    }, 750);
+  }
+
+  addBooty() {
+    this.addBodyPart({ id: this.bootyId + "-booty", color: this.getRandomColor(), part: "BOOTY" })
+    this.bootyId += 1;
+    setTimeout(() => {
+      this.addBooty();
+    }, 750);
   }
 }
